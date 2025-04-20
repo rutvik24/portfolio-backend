@@ -1,0 +1,439 @@
+{
+  "info": {
+    "name": "Portfolio Backend API",
+    "description": "Postman collection for Portfolio Backend API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Projects",
+      "item": [
+        {
+          "name": "Get All Projects",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/projects",
+              "host": ["{{base_url}}"],
+              "path": ["api", "projects"]
+            }
+          }
+        },
+        {
+          "name": "Create Project",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Project Title\",\n  \"description\": \"Project Description\",\n  \"repo_url\": \"https://github.com/example\",\n  \"demo_url\": \"https://example.com\",\n  \"tech_stack\": \"Go, React\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/projects",
+              "host": ["{{base_url}}"],
+              "path": ["api", "projects"]
+            }
+          }
+        },
+        {
+          "name": "Get Project by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/projects/{id}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "projects", "{id}"]
+            }
+          }
+        },
+        {
+          "name": "Update Project",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Updated Title\",\n  \"description\": \"Updated Description\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/projects/{id}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "projects", "{id}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Project",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/projects/{id}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "projects", "{id}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Resume",
+      "item": [
+        {
+          "name": "Get Resume",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/resume",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resume"]
+            }
+          }
+        },
+        {
+          "name": "Upload Resume",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": ""
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/api/resume",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resume"]
+            }
+          }
+        },
+        {
+          "name": "Update Resume",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Updated Resume Title\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/resume",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resume"]
+            }
+          }
+        },
+        {
+          "name": "Delete Resume",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/resume/{id}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "resume", "{id}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Education",
+      "item": [
+        {
+          "name": "Get All Educations",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/educations",
+              "host": ["{{base_url}}"],
+              "path": ["api", "educations"]
+            }
+          }
+        },
+        {
+          "name": "Create Education",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"degree\": \"Bachelor's in Computer Science\",\n  \"institution\": \"University Name\",\n  \"year\": 2023\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/educations",
+              "host": ["{{base_url}}"],
+              "path": ["api", "educations"]
+            }
+          }
+        },
+        {
+          "name": "Get Education by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/educations/{id}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "educations", "{id}"]
+            }
+          }
+        },
+        {
+          "name": "Update Education",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"degree\": \"Updated Degree\",\n  \"institution\": \"Updated Institution\",\n  \"year\": 2024\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/educations/{id}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "educations", "{id}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Education",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/educations/{id}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "educations", "{id}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Experience",
+      "item": [
+        {
+          "name": "Get All Experiences",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/experiences",
+              "host": ["{{base_url}}"],
+              "path": ["api", "experiences"]
+            }
+          }
+        },
+        {
+          "name": "Create Experience",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"role\": \"Software Engineer\",\n  \"company\": \"Company Name\",\n  \"duration\": \"2 years\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/experiences",
+              "host": ["{{base_url}}"],
+              "path": ["api", "experiences"]
+            }
+          }
+        },
+        {
+          "name": "Get Experience by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/experiences/{id}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "experiences", "{id}"]
+            }
+          }
+        },
+        {
+          "name": "Update Experience",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"role\": \"Updated Role\",\n  \"company\": \"Updated Company\",\n  \"duration\": \"3 years\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/experiences/{id}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "experiences", "{id}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Experience",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/experiences/{id}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "experiences", "{id}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Portfolio User",
+      "item": [
+        {
+          "name": "Get Portfolio User",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/portfolio-user",
+              "host": ["{{base_url}}"],
+              "path": ["api", "portfolio-user"]
+            }
+          }
+        },
+        {
+          "name": "Update Portfolio User",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Updated Name\",\n  \"bio\": \"Updated Bio\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/portfolio-user",
+              "host": ["{{base_url}}"],
+              "path": ["api", "portfolio-user"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Admin",
+      "item": [
+        {
+          "name": "Create Admin",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"password123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/admins",
+              "host": ["{{base_url}}"],
+              "path": ["api", "admins"]
+            }
+          }
+        },
+        {
+          "name": "Authenticate Admin",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"password123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/admins/authenticate",
+              "host": ["{{base_url}}"],
+              "path": ["api", "admins", "authenticate"]
+            }
+          }
+        },
+        {
+          "name": "Delete Admin",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/admins/{id}",
+              "host": ["{{base_url}}"],
+              "path": ["api", "admins", "{id}"]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:9000"
+    }
+  ]
+}
+
