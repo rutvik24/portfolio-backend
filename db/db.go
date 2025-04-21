@@ -71,15 +71,18 @@ func SeedDefaultAdmin() {
 	}
 
 	if count == 0 {
-		// Create default admin
-		hashedPassword, err := bcrypt.GenerateFromPassword([]byte("admin123"), bcrypt.DefaultCost)
+		 // Extract default admin credentials from environment variables
+		defaultUsername := config.GetEnv("DEFAULT_ADMIN_USERNAME", "admin")
+		defaultPassword := config.GetEnv("DEFAULT_ADMIN_PASSWORD", "admin123")
+
+		hashedPassword, err := bcrypt.GenerateFromPassword([]byte(defaultPassword), bcrypt.DefaultCost)
 		if err != nil {
 			log.Printf("Error hashing default admin password: %v", err)
 			return
 		}
 
 		defaultAdmin := models.Admin{
-			Username: "admin",
+			Username: defaultUsername,
 			Password: string(hashedPassword),
 			Role:     models.RoleSuperSuperAdmin,
 		}
