@@ -72,6 +72,13 @@ func UploadResumeToR2(file multipart.File, fileHeader *multipart.FileHeader) (st
 
 	// Return the file URL
 	fileURL := fmt.Sprintf("%s/%s/%s", r2Endpoint, r2Bucket, uniqueFileName)
+
+	// Use custom domain for file URL if configured
+	r2CustomDomain := config.GetEnv("R2_CUSTOM_DOMAIN", "")
+	if r2CustomDomain != "" {
+		fileURL = fmt.Sprintf("%s/%s", r2CustomDomain, uniqueFileName)
+	}
+
 	return fileURL, nil
 }
 
@@ -99,8 +106,14 @@ func DeleteFileFromR2(fileURL string) error {
 
 	s3Client := s3.New(sess)
 
-	// Extract the file key from the file URL
-	fileKey := fileURL[len(fmt.Sprintf("%s/%s/", r2Endpoint, r2Bucket)):] // Remove the bucket URL prefix
+	// Adjust file key extraction logic for custom domain
+	r2CustomDomain := config.GetEnv("R2_CUSTOM_DOMAIN", "")
+	var fileKey string
+	if r2CustomDomain != "" {
+		fileKey = fileURL[len(fmt.Sprintf("%s/", r2CustomDomain)):] // Remove custom domain prefix
+	} else {
+		fileKey = fileURL[len(fmt.Sprintf("%s/%s/", r2Endpoint, r2Bucket)):] // Remove default bucket URL prefix
+	}
 
 	// Delete the file from the R2 bucket
 	_, err = s3Client.DeleteObject(&s3.DeleteObjectInput{
